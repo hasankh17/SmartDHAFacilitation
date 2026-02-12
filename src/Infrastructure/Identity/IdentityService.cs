@@ -5,6 +5,7 @@ using DHAFacilitationAPIs.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using DHAFacilitationAPIs.Domain.Entities;
 
 namespace DHAFacilitationAPIs.Infrastructure.Identity;
 

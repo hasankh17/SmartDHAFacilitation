@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace DHAFacilitationAPIs.Application.Feature.UserFamily.Commands.AddUserFamilyCommandHandler;
 
@@ -14,6 +15,6 @@ public class AddUserFamilyCommand : IRequest<AddUserFamilyResponse>
     public DateTime DOB { get; set; }
     public string CNIC { get; set; } = string.Empty;
     public string FatherName { get; set; } = string.Empty;
-    public string Image { get; set; } = string.Empty;
+    public IFormFile? ProfilePicture { get; set; }
     public string PhoneNo { get; set; } = string.Empty;
 }

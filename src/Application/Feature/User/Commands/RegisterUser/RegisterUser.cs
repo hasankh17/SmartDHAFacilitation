@@ -2,6 +2,7 @@
 using DHAFacilitationAPIs.Application.Common.Models;
 using DHAFacilitationAPIs.Application.Interface.Repository;
 using DHAFacilitationAPIs.Domain.Constants;
+using DHAFacilitationAPIs.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace DHAFacilitationAPIs.Application.Feature.User.Commands.RegisterUser;

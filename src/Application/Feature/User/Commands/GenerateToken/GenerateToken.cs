@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using DHAFacilitationAPIs.Application.Interface.Service;
 using DHAFacilitationAPIs.Application.Common.Models;
 using DHAFacilitationAPIs.Application.ViewModels;
+using DHAFacilitationAPIs.Domain.Entities;
 
 namespace DHAFacilitationAPIs.Application.Feature.User.Commands.GenerateToken;
 public record GenerateTokenCommand : IRequest<AuthenticationDto>

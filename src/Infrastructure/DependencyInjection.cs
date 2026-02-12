@@ -3,6 +3,7 @@ using DHAFacilitationAPIs.Application.Common.Interfaces;
 using DHAFacilitationAPIs.Application.Common.Models;
 using DHAFacilitationAPIs.Application.Common.Settings;
 using DHAFacilitationAPIs.Application.Interface.Repository;
+using DHAFacilitationAPIs.Domain.Entities;
 using DHAFacilitationAPIs.Infrastructure.Data;
 using DHAFacilitationAPIs.Infrastructure.Data.Interceptors;
 using DHAFacilitationAPIs.Infrastructure.Identity;
@@ -29,7 +30,6 @@ public static class DependencyInjection
 
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         // services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
-
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());

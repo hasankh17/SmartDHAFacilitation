@@ -5,11 +5,10 @@ using DHAFacilitationAPIs.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ApplicationUser = DHAFacilitationAPIs.Domain.Entities.ApplicationUser;
 
 namespace DHAFacilitationAPIs.Infrastructure.Data;
 
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>, IApplicationDbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -49,21 +48,21 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
                 entity.Property(e => e.ConcurrencyStamp).HasMaxLength(85);
             });
 
-        builder.Entity<IdentityUserRole<Guid>>(entity =>
+        builder.Entity<IdentityUserRole<string>>(entity =>
         {
             entity.ToTable("UserRoles");
             entity.Property(e => e.UserId).HasMaxLength(85);
             entity.Property(e => e.RoleId).HasMaxLength(85);
         });
 
-        builder.Entity<IdentityUserClaim<Guid>>(entity =>
+        builder.Entity<IdentityUserClaim<string>>(entity =>
         {
             entity.ToTable("UserClaims");
             entity.Property(e => e.Id).HasMaxLength(85);
             entity.Property(e => e.UserId).HasMaxLength(85);
         });
 
-        builder.Entity<IdentityUserLogin<Guid>>(entity =>
+        builder.Entity<IdentityUserLogin<string>>(entity =>
         {
             entity.ToTable("UserLogins");
             entity.Property(e => e.LoginProvider).HasMaxLength(85);
@@ -71,13 +70,13 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
             entity.Property(e => e.UserId).HasMaxLength(85);
         });
 
-        builder.Entity<IdentityUserToken<Guid>>(entity =>
+        builder.Entity<IdentityUserToken<string>>(entity =>
         {
             entity.ToTable("UserTokens").HasKey(e => new { e.UserId, e.LoginProvider });
             entity.Property(e => e.UserId).HasMaxLength(85);
         });
 
-        builder.Entity<IdentityRoleClaim<Guid>>(entity =>
+        builder.Entity<IdentityRoleClaim<string>>(entity =>
         {
             entity.ToTable("RoleClaims");
             entity.Property(e => e.Id).HasMaxLength(85);
