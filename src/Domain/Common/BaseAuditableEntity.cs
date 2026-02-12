@@ -6,7 +6,9 @@ public abstract class BaseAuditableEntity : BaseEntity
 
     public string? CreatedBy { get; set; }
 
-    public DateTimeOffset LastModified { get; set; }
+    public DateTimeOffset? LastModified { get; set; }
 
     public string? LastModifiedBy { get; set; }
+    public bool IsDeleted { get; set; } = false;
+    public bool IsActive { get; set; } = true;
 }

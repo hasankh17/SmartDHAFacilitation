@@ -43,7 +43,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Configurations\" />
+    <Folder Include="Data\SQLite\" />
+    <Folder Include="Migrations\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 

@@ -20,7 +20,7 @@ public static class InitialiserExtensions
 
         await initialiser.InitialiseAsync();
 
-       // await initialiser.SeedAsync();
+        await initialiser.SeedAsync();
     }
 }
 
@@ -78,28 +78,15 @@ public class ApplicationDbContextInitialiser
             await _roleManager.CreateAsync(new IdentityRole { Name = role });
         }
 
-        // Default users
-        var administrator = new ApplicationUser { Name = "Super Admin", UserName = "administrator@localhost.com", Email = "administrator@localhost.com" };
+        // Super Admin
+        var superadministrator = new ApplicationUser { Name = "Super Admin", UserName = "superadministrator@dhakarachi.org", Email = "superadministrator@dhakarachi.org" };
 
-        if (_userManager.Users.All(u => u.UserName != administrator.UserName))
+        if (_userManager.Users.All(u => u.UserName != superadministrator.UserName))
         {
-            await _userManager.CreateAsync(administrator, "Administrator1!");
-            await _userManager.AddToRoleAsync(administrator, Roles.Administrator);
+            await _userManager.CreateAsync(superadministrator, "SuperAdministrator1!");
+            await _userManager.AddToRoleAsync(superadministrator, Roles.SuperAdministrator);
 
         }
 
-        // Tbo users
-        var tboUser = new ApplicationUser { Name = "Tbo User", UserName = "tboUser@localhost.com", Email = "tboUser@localhost.com" };
-
-        if (_userManager.Users.All(u => u.UserName != tboUser.UserName))
-        {
-
-            await _userManager.CreateAsync(tboUser, "TboUser@123!");
-            await _userManager.AddToRoleAsync(tboUser, Roles.Tbo);
-
-        }
-
-        // Default data
-       
     }
 }

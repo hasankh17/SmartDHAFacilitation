@@ -50,7 +50,7 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, G
             var errors = user.Errors.Select(e => e.Description).ToList();
             throw new Exception("Failed to create user. Errors: " + string.Join(", ", errors));
         }
-        var addUserRole = await _userManager.AddToRoleAsync(User, Roles.Tbo);
+        var addUserRole = await _userManager.AddToRoleAsync(User, Roles.Administrator);
         if (!addUserRole.Succeeded)
         {
             var errors = user.Errors.Select(e => e.Description).ToList();

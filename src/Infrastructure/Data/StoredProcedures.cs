@@ -53,10 +53,7 @@ public class StoredProcedures : IProcedureService
         return (parameters, row);
     }
 
-    public async Task<(DynamicParameters, List<T>)> ExecuteWithListAsync<T>(
-    string name,
-    DynamicParameters parameters,
-    CancellationToken cancellationToken)
+    public async Task<(DynamicParameters, List<T>)> ExecuteWithListAsync<T>(string name,DynamicParameters parameters,CancellationToken cancellationToken)
     {
         var conn = _context.Database.GetDbConnection();
         if (conn.State != ConnectionState.Open)

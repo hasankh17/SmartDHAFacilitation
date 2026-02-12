@@ -2,10 +2,11 @@
 
 public abstract class Roles
 {
+    public const string SuperAdministrator = nameof(SuperAdministrator);
     public const string Administrator = nameof(Administrator);
-    public const string Tbo = nameof(Tbo);
+    public const string Admin = nameof(Admin);
     public static IEnumerable<string> GetRoles()
     {
-        return new[] { Administrator, Tbo };
+        return new[] { SuperAdministrator, Administrator, Admin};
     }
 }
