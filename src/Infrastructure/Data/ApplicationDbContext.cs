@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using DHAFacilitationAPIs.Application.Common.Interfaces;
 using DHAFacilitationAPIs.Application.Common.Models;
-using DHAFacilitationAPIs.Domain.Entities;
+using DHAFacilitationAPIs.Domain.Entities.SmartDHA;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +13,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-    public DbSet<Vehicle> Vehicles { get; set; }
-    public DbSet<Property> Properties { get; set; }
-    public DbSet<UserFamily> UserFamilies { get; set; }
+   
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

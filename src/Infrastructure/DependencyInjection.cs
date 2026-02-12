@@ -47,6 +47,18 @@ public static class DependencyInjection
 
         services.AddScoped<ApplicationDbContextInitialiser>();
 
+        var smartDHAConnection = configuration.GetConnectionString("OLMRSConnection");
+        Guard.Against.Null(smartDHAConnection, message: "Connection string 'smartDHAConnection' not found.");
+
+        services.AddDbContext<SmartdhaDbContext>((sp, options) =>
+        {
+            options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
+            options.UseSqlServer(smartDHAConnection);
+        });
+
+        services.AddScoped<ISmartdhaDbContext>(provider =>
+            provider.GetRequiredService<SmartdhaDbContext>());
+
 
         services.AddScoped<IProcedureService, StoredProcedures>();
 

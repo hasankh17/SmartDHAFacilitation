@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace DHAFacilitationAPIs.Domain.Entities;
+namespace DHAFacilitationAPIs.Domain.Entities.SmartDHA;
 
 public class Property : BaseAuditableEntity
 {

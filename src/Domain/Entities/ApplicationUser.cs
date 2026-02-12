@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DHAFacilitationAPIs.Domain.Entities.SmartDHA;
+using Microsoft.AspNetCore.Identity;
 
 namespace DHAFacilitationAPIs.Domain.Entities;
 public class ApplicationUser : IdentityUser<Guid>

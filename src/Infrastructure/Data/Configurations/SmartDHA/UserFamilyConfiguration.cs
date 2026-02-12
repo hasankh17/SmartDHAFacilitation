@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DHAFacilitationAPIs.Domain.Entities;
+using DHAFacilitationAPIs.Domain.Entities.SmartDHA;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using static Dapper.SqlMapper;

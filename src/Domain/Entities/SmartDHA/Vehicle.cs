@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DHAFacilitationAPIs.Domain.Entities;
+namespace DHAFacilitationAPIs.Domain.Entities.SmartDHA;
 public class Vehicle : BaseAuditableEntity
 {
     public int LicenseNo { get; set; } 
